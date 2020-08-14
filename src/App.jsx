@@ -8,6 +8,9 @@ class App extends Component {
     transactions: [],
     description: "",
     amount: "",
+    balance: '',
+    income: '',
+    expenses: '',
   };
 
   addTransaction = add => {
@@ -20,7 +23,8 @@ class App extends Component {
           }
         ];
 
-    this.setState ({transactions, description: '', amount: '',})
+    this.setState ({transactions, description: '', amount: '',});
+   
 
   }
 
@@ -42,7 +46,8 @@ class App extends Component {
 
         <main>
           <div className="container">
-            <Total />
+            <Total 
+                transactions={this.state.transactions}/>
             <History 
                 transactions={this.state.transactions}/>
             <Operation 
